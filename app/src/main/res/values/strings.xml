@@ -226,5 +226,5 @@
     <string name="settings_section_about">About</string>
     <string name="settings_privacy_policy">Privacy Policy</string>
     <string name="settings_app_version">Version %1$s</string>
-    <string name="privacy_policy_url">https://example.com/privacy</string>
+    <string name="privacy_policy_url">https://toralabs-dev.github.io/ScreenTimeTracker/privacy-policy</string>
 </resources>

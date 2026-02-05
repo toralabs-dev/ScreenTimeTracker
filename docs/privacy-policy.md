@@ -86,9 +86,9 @@ We may update this Privacy Policy from time to time. We will notify users of any
 
 If you have questions about this Privacy Policy or the App's privacy practices, please contact us at:
 
-**Email:** [your-email@example.com]
+**Email:** [toralabsdev@gmail.com]
 
-**GitHub Issues:** [https://github.com/your-username/ScreenTimeTracker/issues](https://github.com/your-username/ScreenTimeTracker/issues)
+**GitHub Issues:** [https://github.com/toralabs-dev/ScreenTimeTracker/issues](https://github.com/toralabs-dev/ScreenTimeTracker/issues)
 
 ---
 
