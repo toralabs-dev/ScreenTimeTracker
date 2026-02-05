@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name">Screen Time Tracker</string>
+
+    <!-- Permission Activity strings -->
+    <string name="permission_title">Usage Access Required</string>
+    <string name="permission_description">To track your screen time, this app needs permission to access app usage data. This allows us to show you how much time you spend on each app.</string>
+    <string name="permission_privacy_note">Your data stays on your device and is never shared with anyone.</string>
+    <string name="permission_button_grant">Grant Permission</string>
+    <string name="permission_button_continue">Continue</string>
+
+    <!-- Permission granted state -->
+    <string name="permission_granted_title">You\'re All Set!</string>
+    <string name="permission_granted_description">Usage access permission has been granted. You can now start tracking your screen time.</string>
+
+    <!-- Main Activity / Dashboard strings -->
+    <string name="main_title">Dashboard</string>
+    <string name="main_welcome">Welcome to Screen Time Tracker</string>
+    <string name="main_placeholder">Your screen time statistics will appear here.</string>
+
+    <!-- Dashboard display strings -->
+    <string name="dashboard_today">today</string>
+    <string name="dashboard_top_apps">Most Used Apps</string>
+    <string name="dashboard_longest_sessions">Longest Sessions</string>
+    <string name="dashboard_limit_format">%1$d%% of %2$s limit</string>
+    <string name="dashboard_time_remaining">%1$s remaining</string>
+    <string name="dashboard_over_limit">%1$s over limit</string>
+
+    <!-- Empty state strings -->
+    <string name="dashboard_no_data_title">Ready to Track!</string>
+    <string name="dashboard_no_data_message">Start using your favorite apps and check back to see your stats here. We\'ll help you stay mindful of your screen time.</string>
+
+    <!-- Insight section strings -->
+    <string name="dashboard_pattern">Pattern</string>
+    <string name="dashboard_set_reminder">Set reminder</string>
+
+    <!-- Trends section strings -->
+    <string name="dashboard_trends">Trends</string>
+    <string name="dashboard_trends_7d">7D</string>
+    <string name="dashboard_trends_14d">14D</string>
+    <string name="dashboard_trends_30d">30D</string>
+    <string name="dashboard_trends_average">Average: %1$s</string>
+    <string name="dashboard_trends_worst_day">Worst day: %1$s</string>
+    <string name="dashboard_trends_no_data">No usage data available for this period.</string>
+    <string name="trends_partial_data">Only %1$d of %2$d days available</string>
+
+    <!-- Accessibility -->
+    <string name="app_icon_description">App icon</string>
+    <string name="chevron_view_details">View details</string>
+
+    <!-- Most Used Apps screen -->
+    <string name="most_used_apps_title">Most Used Apps</string>
+    <string name="see_all">See all</string>
+    <string name="most_used_apps_empty">No app usage data for today.</string>
+
+    <!-- App Detail screen -->
+    <string name="app_detail_today_summary">Today\'s Summary</string>
+    <string name="app_detail_total_time">Total Time</string>
+    <string name="app_detail_sessions">Sessions</string>
+    <string name="app_detail_longest_session">Longest Session</string>
+    <string name="app_detail_sessions_today">Today\'s Sessions</string>
+    <string name="app_detail_no_sessions">No sessions recorded today.</string>
+    <string name="app_detail_trend">Usage Trend</string>
+    <string name="app_detail_trend_average">Average: %1$s</string>
+
+    <!-- Settings screen -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_daily_limit">Daily Limit</string>
+    <string name="settings_daily_limit_label">Set your daily app limit</string>
+    <string name="settings_limit_min">30m</string>
+    <string name="settings_limit_max">6h</string>
+
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System default</string>
+
+    <string name="settings_section_notifications">Notifications</string>
+    <string name="settings_warning_notification">Warning at 80%</string>
+    <string name="settings_warning_notification_desc">Get notified when you reach 80% of your daily limit</string>
+    <string name="settings_limit_notification">Limit reached</string>
+    <string name="settings_limit_notification_desc">Get notified when you reach your daily limit</string>
+
+    <string name="settings_snooze">Snooze notifications</string>
+    <string name="settings_snooze_desc">Temporarily pause all usage notifications</string>
+    <string name="settings_snooze_button">Snooze 60 min</string>
+    <string name="settings_snooze_active">Snoozed until %1$s</string>
+    <string name="settings_snooze_clear">Clear</string>
+
+    <string name="settings_section_focus_mode">Focus Mode</string>
+    <string name="settings_focus_mode_title">Focus Schedules</string>
+    <string name="settings_focus_mode_desc">Block distracting apps during scheduled times</string>
+
+    <string name="settings_section_tracked_apps">Tracked Apps</string>
+    <string name="settings_tracked_apps_desc">Choose which apps to include in your screen time tracking</string>
+
+    <!-- Permission denied dialog -->
+    <string name="permission_denied_title">Notifications Disabled</string>
+    <string name="permission_denied_message">To receive screen time alerts, you need to enable notifications for this app in your device settings.</string>
+    <string name="permission_denied_settings">Open Settings</string>
+
+    <!-- Settings feedback -->
+    <string name="settings_saved">Settings saved</string>
+
+    <!-- Accessibility service -->
+    <string name="accessibility_service_description">Monitors app launches to enforce Focus Mode schedules. Required for blocking distracting apps during focus periods.</string>
+
+    <!-- Notification strings -->
+    <string name="notification_warning_title">Still scrolling?</string>
+    <string name="notification_warning_text">You\'re close to today\'s screen-time limit. Want to pause or keep going?</string>
+    <string name="notification_limit_title">Past your daily limit</string>
+    <string name="notification_limit_text">This session pushed you over. You can stop here, or keep going for an hour.</string>
+    <string name="notification_action_snooze">Keep going (1h)</string>
+    <string name="notification_action_pause">Pause now</string>
+
+    <!-- Focus Block Activity -->
+    <string name="focus_block_message">Stay focused! You can use this app later.</string>
+    <string name="focus_block_go_back">Go Back</string>
+    <string name="focus_block_allow_once">Allow once</string>
+    <string name="focus_block_end_today">End %1$s for today</string>
+    <string name="focus_block_time_remaining">%1$s remaining</string>
+    <string name="focus_block_schedule_active">%1$s is active</string>
+
+    <!-- Focus Schedule List -->
+    <string name="focus_schedules_title">Focus Schedules</string>
+    <string name="focus_schedules_section">Schedules</string>
+
+    <!-- Take a Break Feature -->
+    <string name="focus_mode_active">Focus Mode</string>
+    <string name="focus_mode_active_desc">Schedules are blocking distracting apps</string>
+    <string name="take_a_break">Take a Break</string>
+    <string name="take_a_break_title">Take a Break</string>
+    <string name="break_30_minutes">30 minutes</string>
+    <string name="break_1_hour">1 hour</string>
+    <string name="break_2_hours">2 hours</string>
+    <string name="break_until_tomorrow">Until tomorrow</string>
+    <string name="on_break_title">On Break</string>
+    <string name="break_remaining_format">%1$s remaining</string>
+    <string name="resume_now">Resume Now</string>
+    <string name="cancel">Cancel</string>
+    <string name="focus_schedules_empty">No schedules yet. Tap + to create one.</string>
+    <string name="focus_schedule_apps_count">%1$d apps blocked</string>
+
+    <!-- Focus Schedule Edit -->
+    <string name="focus_schedule_new_title">New Schedule</string>
+    <string name="focus_schedule_edit_title">Edit Schedule</string>
+    <string name="focus_schedule_name_hint">Schedule name</string>
+    <string name="focus_schedule_name_default">My Schedule</string>
+    <string name="focus_schedule_days_label">Active days</string>
+    <string name="focus_schedule_time_label">Time range</string>
+    <string name="focus_schedule_apps_label">Apps to block</string>
+    <string name="focus_schedule_save">Save</string>
+    <string name="focus_schedule_saved">Schedule saved</string>
+    <string name="focus_schedule_deleted">Schedule deleted</string>
+
+    <!-- Day abbreviations -->
+    <string name="day_mon">Mon</string>
+    <string name="day_tue">Tue</string>
+    <string name="day_wed">Wed</string>
+    <string name="day_thu">Thu</string>
+    <string name="day_fri">Fri</string>
+    <string name="day_sat">Sat</string>
+    <string name="day_sun">Sun</string>
+
+    <!-- Focus Mode Accessibility Dialog -->
+    <string name="focus_accessibility_required_title">Enable Accessibility Service</string>
+    <string name="focus_accessibility_required_message">Focus Mode needs accessibility access to detect when you open blocked apps and show the blocking screen.\n\nPlease enable \"ScreenTimeTracker\" in Accessibility Settings.</string>
+    <string name="focus_accessibility_disabled_message">The accessibility service was disabled (this can happen after app updates). Please re-enable it to continue using Focus Mode.</string>
+    <string name="focus_accessibility_open_settings">Open Settings</string>
+    <string name="focus_accessibility_cancel">Cancel</string>
+
+    <!-- Focus Mode Accessibility Disabled Notification -->
+    <string name="focus_notification_disabled_title">Focus Mode Needs Attention</string>
+    <string name="focus_notification_disabled_message">Tap to re-enable accessibility service for app blocking</string>
+
+    <!-- Smart Recommendations -->
+    <string name="recommendation_title">For You</string>
+    <string name="recommendation_dismiss">Dismiss</string>
+
+    <!-- Recommendation insight texts (with placeholders) -->
+    <string name="rec_peak_hour">You spend %1$d%% more time on apps between %2$s–%3$s.</string>
+    <string name="rec_dominant_app">%1$s accounts for %2$d%% of your screen time.</string>
+    <string name="rec_evening_usage">You average %1$s on apps after %2$s.</string>
+    <string name="rec_over_limit_streak">You\'ve exceeded your limit %1$d days in a row.</string>
+    <string name="rec_quick_return">You often return to %1$s within %2$d minutes.</string>
+    <string name="rec_weekend_spike">Your weekend usage is %1$sx higher than weekdays.</string>
+    <string name="rec_improving">Your screen time is down %1$d%% from your limit!</string>
+
+    <!-- Recommendation CTA texts -->
+    <string name="cta_focus_at_time">Start Focus Mode at %1$s</string>
+    <string name="cta_block_app">Block %1$s during work hours</string>
+    <string name="cta_winddown">Enable Wind-down at %1$s</string>
+    <string name="cta_adjust_limit">Try a %1$s daily limit</string>
+    <string name="cta_take_break">Take a break from %1$s</string>
+    <string name="cta_weekend_focus">Add weekend Focus schedule</string>
+    <string name="cta_keep_it_up">Keep it up!</string>
+
+    <!-- Recommendation schedule names -->
+    <string name="rec_schedule_name_focus">%1$s Focus</string>
+    <string name="rec_schedule_name_work_hours">Work Hours</string>
+    <string name="rec_schedule_name_winddown">Wind-down</string>
+    <string name="rec_schedule_name_weekend">Weekend Focus</string>
+
+    <!-- Recommendation confirmation dialog -->
+    <string name="create_focus_schedule">Create Focus Schedule</string>
+    <string name="schedule_confirmation_message">Block distracting apps from %1$s to %2$s?</string>
+    <string name="create">Create</string>
+    <string name="customize">Customize</string>
+    <string name="start_break_title">Take a Break</string>
+    <string name="start_break_message">Take a 1-hour break from %1$s?</string>
+    <string name="start_break">Start Break</string>
+
+    <!-- Recommendation not enough data -->
+    <string name="rec_not_enough_data">Keep using the app to see personalized insights!</string>
+
+    <!-- Data Management Section -->
+    <string name="settings_section_data">Data Management</string>
+    <string name="settings_clear_data">Clear All Data</string>
+    <string name="settings_clear_data_desc">Delete all usage history and settings</string>
+    <string name="settings_clear_data_confirm_title">Clear All Data?</string>
+    <string name="settings_clear_data_confirm_message">This will permanently delete all your usage history, focus schedules, and reset settings. This cannot be undone.</string>
+    <string name="settings_clear_data_success">All data cleared</string>
+
+    <!-- About Section -->
+    <string name="settings_section_about">About</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_app_version">Version %1$s</string>
+    <string name="privacy_policy_url">https://example.com/privacy</string>
+</resources>

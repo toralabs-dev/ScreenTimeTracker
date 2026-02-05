@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        PACKAGE_USAGE_STATS permission
+        This is a special permission that allows the app to access usage statistics.
+        Users must manually grant this in Settings > Apps > Special access > Usage access.
+        This is required for screen time tracking functionality.
+    -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!--
+        POST_NOTIFICATIONS permission (Android 13+)
+        Required to show notifications on Android 13 (API 33) and above.
+        This is a runtime permission that must be requested at runtime.
+    -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!--
+        FOREGROUND_SERVICE permission
+        Required for running a foreground service to track app usage in real-time.
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!--
+        RECEIVE_BOOT_COMPLETED permission
+        Allows the app to start tracking after device reboot.
+    -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!--
+        SCHEDULE_EXACT_ALARM permission (Android 12+)
+        Required for scheduling exact alarms for fast usage checks.
+        This ensures notifications are delivered promptly when approaching the limit.
+    -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!--
+        USE_EXACT_ALARM permission (Android 13+)
+        Alternative permission for exact alarms, auto-granted for alarm/timer apps.
+    -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
+    <!-- Package visibility for Android 11+ -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".ScreenTimeTrackerApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScreenTimeTracker"
+        tools:targetApi="34">
+
+        <!--
+            PermissionActivity - Entry point of the app
+            This activity checks for usage access permission and guides users to grant it.
+            Launches first and redirects to MainActivity once permission is granted.
+        -->
+        <activity
+            android:name=".ui.permission.PermissionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ScreenTimeTracker">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+            MainActivity - Main dashboard of the app
+            Shows screen time statistics and app usage data.
+        -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            MostUsedAppsActivity - Full list of tracked apps
+            Shows complete ranked list of all tracked social media apps for today.
+        -->
+        <activity
+            android:name=".ui.apps.MostUsedAppsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            AppDetailActivity - Single app details
+            Shows detailed usage for a specific app including sessions and trends.
+        -->
+        <activity
+            android:name=".ui.appdetail.AppDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            SettingsActivity - App settings
+            Configure daily limits, notifications, and tracked apps.
+        -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.main.MainActivity"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            SnoozeReceiver - Handles notification snooze action
+            When user taps "Snooze 60 min" on a notification.
+        -->
+        <receiver
+            android:name=".notifications.SnoozeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.screentimetracker.app.ACTION_SNOOZE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            PauseActionReceiver - Handles "Pause Now" notification action
+            Dismisses the notification and opens MainActivity.
+        -->
+        <receiver
+            android:name=".notifications.PauseActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.screentimetracker.app.ACTION_PAUSE" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            BootCompletedReceiver - Restores workers after device reboot
+            Re-schedules usage check worker and evaluates fast mode state.
+        -->
+        <receiver
+            android:name=".notifications.BootCompletedReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            FastCheckAlarmReceiver - Handles fast check alarms
+            Triggered by AlarmManager for reliable 2-minute checks during Doze mode.
+        -->
+        <receiver
+            android:name=".worker.FastCheckAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.screentimetracker.app.ACTION_FAST_CHECK" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+            FocusBlockActivity - Focus Mode blocking screen
+            Displays when user tries to open a blocked app during focus mode.
+            Launched by AppLaunchInterceptorService.
+        -->
+        <activity
+            android:name=".focus.ui.FocusBlockActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            ScheduleListActivity - Focus Mode schedule list
+            Shows all Focus Mode schedules with enable/disable toggles.
+        -->
+        <activity
+            android:name=".focus.ui.schedule.ScheduleListActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.settings.SettingsActivity"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            ScheduleEditActivity - Create/edit Focus Mode schedule
+            Form for creating new or editing existing schedules.
+        -->
+        <activity
+            android:name=".focus.ui.schedule.ScheduleEditActivity"
+            android:exported="false"
+            android:parentActivityName=".focus.ui.schedule.ScheduleListActivity"
+            android:theme="@style/Theme.ScreenTimeTracker" />
+
+        <!--
+            AppLaunchInterceptorService - Focus Mode accessibility service
+            Intercepts app launches to enforce Focus Mode schedules.
+            User must enable this in Settings > Accessibility.
+        -->
+        <service
+            android:name=".focus.accessibility.AppLaunchInterceptorService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+    </application>
+
+</manifest>
